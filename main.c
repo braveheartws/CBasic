@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include "include/helper.h"
+#include <math.h>
 
 typedef unsigned char *byte_pointer;
 
@@ -21,11 +24,33 @@ void inplace_swap(int *x, int *y) {
 
 }
 
+
 void char2int() {
     char var[] = "123";
     int i = atoi(var);
     printf("ret: %d\n",i);
 }
+
+typedef enum {
+    READY  ,
+    NOT_READY ,
+    YES_READY,
+    OTHER_STATS,
+    OTHER_STATS_2,
+} Stats;
+
+enum COLOR{
+    RED,
+    BLUE
+};
+
+struct Test{
+    int a;
+    int age;
+    char name[20];
+
+};
+
 
 int main() {
     short x = 12345;    //0011000000111001
@@ -43,7 +68,6 @@ int main() {
     show_bytes(valp, 1);
     show_bytes(valp, 2);
     show_bytes(valp, 3);
-
     int a = 5;
     int b = 6;
     inplace_swap(&a,&b);
@@ -55,5 +79,33 @@ int main() {
     printf("msg: %s\n",msg);
 
     char2int();
+    char buf[] = "zhangjunpu";
+    printf("buf size: %llu\n", sizeof(buf));
+    /*memcpy(ch,arr, sizeof(arr));
+    int ret = atoi(ch);
+    printf("ret:%d\n", ret);*/
+
+    log("hello wintersweett");
+    typedef struct Test T;
+    T test;
+    T *ptr_test = malloc(sizeof(struct  Test));
+
+    char* mem = malloc(100 * sizeof(char));
+
+    ptr_test->age = 18;
+    ptr_test->a = 50;
+    memcpy(ptr_test->name,"zhangjunpu",11);
+
+    memcpy(mem,ptr_test, sizeof(struct Test));
+
+    printf("info : age: %d   a: %d name: %s \n",ptr_test->age,ptr_test->a,ptr_test->name);
+
+    struct  Test *car = (struct Test *) mem;
+    printf("info : age: %d   a: %d name: %s \n",car->age,car->a,car->name);
+
+    printf("enum %d %d %d \n",READY,NOT_READY,YES_READY);
+    printf("enum %d %d %d \n",RED,BLUE,50);
+
+
     return 0;
 }
