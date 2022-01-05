@@ -5,5 +5,6 @@
 #ifndef CBASIC_UTIL_H
 #define CBASIC_UTIL_H
 
+void Hello();
 
 #endif //CBASIC_UTIL_H

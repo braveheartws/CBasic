@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "include/helper.h"
-#include <math.h>
+
 
 typedef unsigned char *byte_pointer;
 
@@ -52,7 +52,7 @@ struct Test{
 };
 
 
-int main() {
+int main1() {
     short x = 12345;    //0011000000111001
     short mx = -x;      //1100111111000111  //-12345的补码
     show_bytes((byte_pointer) &x, sizeof(short));   // 39 30    小端
@@ -85,7 +85,6 @@ int main() {
     int ret = atoi(ch);
     printf("ret:%d\n", ret);*/
 
-    log("hello wintersweett");
     typedef struct Test T;
     T test;
     T *ptr_test = malloc(sizeof(struct  Test));
