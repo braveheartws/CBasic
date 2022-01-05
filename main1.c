@@ -55,9 +55,10 @@ int main(int argc, char *argv[]) {
     sprintf_s(tszTmp, 50 ,("%d-%02d-%02d %02d:%02d:%02d"), 1900 + t->tm_year, 1 + t->tm_mon, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
     printf("格式化后的时间:%s", tszTmp);
 
-    printf("times: %llu\n",standard_to_stamp("2021-01-04 00:00:00"));
-
-
+    char *format = malloc(sizeof(char ) * 50);
+    memset(format, 0, 50);
+    sprintf_s(format, 50,"%d-%02d-%02d 00:00:00",1900 + t->tm_year, 1 + t->tm_mon, t->tm_mday);
+    printf("times: %llu\n", standard_to_stamp(format));
     return 0;
 }
 
